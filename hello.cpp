@@ -56,21 +56,30 @@ void printResult(char board[3][3], char player) {
 }
 
 // Function to get the player's input
-void getInput(int &row, int &col) {
+void getInput(int& row, int& col, char board[3][3]) {
   while (true) {
     cout << "Enter row (0-2) and column (0-2): ";
     cin >> row >> col;
     if (row >= 0 && row < 3 && col >= 0 && col < 3) {
-      break;
+      if (board[row][col] == ' ') {
+        break;
+      } else {
+        cout << "Position already taken. Try again.\n";
+      }
     } else {
       cout << "Invalid input. Try again.\n";
     }
   }
 }
 
+// Function to check if a position is already taken
+bool isPositionTaken(char board[3][3], int row, int col) {
+  return board[row][col] != ' ';
+}
+
 int main() {
   // Initialize the board and players
-  char board[3][3] = {{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
+  char board[3][3] = { {' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '} };
   char player = 'X';
 
   cout << "Welcome to Tic-Tac-Toe!\n";
@@ -82,7 +91,7 @@ int main() {
 
     // Get the player's input
     int row, col;
-    getInput(row, col);
+    getInput(row, col, board);
 
     // Make the move
     board[row][col] = player;
