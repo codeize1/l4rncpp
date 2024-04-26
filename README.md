@@ -41,7 +41,7 @@ Code Structure
 * The `main` function initializes the board and players, and starts the game loop.
 * The game loop prints the game result, gets the player's input, makes the move, checks for a win or draw, and switches to the other player.
 
-Conclusion
+## Conclusion
 ----------
 
 This program provides a simple implementation of the classic Tic-Tac-Toe game. It includes input validation, win and draw detection, and a user-friendly interface. It can be extended to include additional features such as AI opponents or different board sizes.
